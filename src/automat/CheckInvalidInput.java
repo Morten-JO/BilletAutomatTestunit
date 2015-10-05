@@ -1,5 +1,7 @@
 package automat;
 
+import java.util.Scanner;
+
 public class CheckInvalidInput
 {
 	public static void main(String[] arg)
@@ -9,8 +11,16 @@ public class CheckInvalidInput
 		int antalFejl = 0;
 		int retur;
 		
-		//dette kan ikke tjekkes, men skulle istedet for rettes for alle cases i BenytBilletAutomat
-		automat.indsætPenge(Integer.parseInt("her skulle det ses om et scanner input..."));
+		Scanner tastatur = new Scanner(System.in);
+		int valg;
+		while(!tastatur.hasNextInt()){
+			tastatur.nextLine();
+			System.out.println("Skriv et tal!");
+		}
+		valg = tastatur.nextInt();
+		tastatur.close();
+		
+		automat.indsætPenge(valg);
 		
 		System.out.println();
 		System.out.println("Der blev fundet "+antalFejl+" fejl i automaten");
