@@ -60,8 +60,8 @@ public class Billetautomat {
 			System.out.println("##########B##T#########");
 			System.out.println();
 	
-			antalBilletterSolgt = antalBilletterSolgt + 1;
-			balance = balance - billetpris; // Billetter koster 10 kroner
+			antalBilletterSolgt++;
+			balance -= billetpris; // Billetter koster 10 kroner
 		}
 	}
 
