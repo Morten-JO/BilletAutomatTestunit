@@ -21,8 +21,7 @@ public class Billetautomat {
 	 * Giver prisen for en billet. 
 	 */
 	public int getBilletpris() {
-		int resultat = billetpris;
-		return resultat;
+		return billetpris;
 	}
 
 	/**

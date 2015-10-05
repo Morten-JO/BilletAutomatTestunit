@@ -9,6 +9,7 @@ public class CheckInvalidInput
 		int antalFejl = 0;
 		int retur;
 		
+		//dette kan ikke tjekkes, men skulle istedet for rettes for alle cases i BenytBilletAutomat
 		automat.indsætPenge(Integer.parseInt("her skulle det ses om et scanner input..."));
 		
 		System.out.println();
