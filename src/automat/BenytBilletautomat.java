@@ -38,7 +38,12 @@ public class BenytBilletautomat
 		
 			if (valg==1) {
 				System.out.print("Skriv beløb: ");
-				int beløb = tastatur.nextInt();
+				int beløb;
+				while(!tastatur.hasNextInt()){
+					tastatur.nextLine();
+					System.out.println("Skriv et tal!");
+				}
+				beløb = tastatur.nextInt();
 				automat.indsætPenge(beløb);
 			}
 			else if (valg==2) {
@@ -62,7 +67,12 @@ public class BenytBilletautomat
 			}
 			else if (valg==13) {
 				System.out.print("Skriv beløb: ");
-				int beløb = tastatur.nextInt();
+				int beløb;
+				while(!tastatur.hasNextInt()){
+					tastatur.nextLine();
+					System.out.println("Skriv et tal!");
+				}
+				beløb = tastatur.nextInt();
 				automat.setBilletpris(beløb);
 			}
 			else if (valg==14) {
