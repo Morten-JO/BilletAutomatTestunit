@@ -28,7 +28,12 @@ public class BenytBilletautomat
 				System.out.println("Tast 13 for at sætte billetpris (montør)");
 				System.out.println("Tast 14 for at logge ud af montørtilstand");
 			}
-			int valg = tastatur.nextInt();
+			int valg;
+			while(!tastatur.hasNextInt()){
+				tastatur.nextLine();
+				System.out.println("Skriv et tal!");
+			}
+			valg = tastatur.nextInt();
 			tastatur.nextLine();
 		
 			if (valg==1) {
