@@ -66,32 +66,55 @@ public class BilletautomatTest {
 
 	@Test
 	public void testGetTotal() {
-		fail("Not yet implemented");
+		Billetautomat b = new Billetautomat();
+		b.putMoney(100);
+		assertEquals(100, b.getTotal());
 	}
 
 	@Test
 	public void testGetAntalBilletterSolgt() {
-		fail("Not yet implemented");
+		Billetautomat b = new Billetautomat();
+		b.putMoney(100);
+		while(b.getBalance() >= b.getBilletpris()){
+			b.udskrivBillet();
+		}
+		b.controllerLogin("1234");
+		assertEquals(10, b.getAntalBilletterSolgt());
 	}
 
 	@Test
 	public void testSetBilletpris() {
-		fail("Not yet implemented");
+		Billetautomat b = new Billetautomat();
+		b.controllerLogin("1234");
+		b.setBilletpris(500);
+		assertEquals(500, b.getBilletpris());
 	}
 
 	@Test
 	public void testNulstil() {
-		fail("Not yet implemented");
+		Billetautomat b = new Billetautomat();
+		b.putMoney(100);
+		while(b.getBalance() >= b.getBilletpris()){
+			b.udskrivBillet();
+		}
+		b.controllerLogin("1234");
+		b.nulstil();
+		assertEquals(0, b.getAntalBilletterSolgt());
 	}
 
 	@Test
 	public void testSetAntalBilletterSolgt() {
-		fail("Not yet implemented");
+		Billetautomat b = new Billetautomat();
+		b.controllerLogin("1234");
+		b.setAntalBilletterSolgt(200);
+		assertEquals(200, b.getAntalBilletterSolgt());
 	}
 
 	@Test
 	public void testIsController() {
-		fail("Not yet implemented");
+		Billetautomat b = new Billetautomat();
+		b.controllerLogin("1234");
+		assertEquals(true, b.isController());
 	}
 
 }
