@@ -20,7 +20,7 @@ public class CheckInvalidInput
 		valg = tastatur.nextInt();
 		tastatur.close();
 		
-		automat.indsætPenge(valg);
+		automat.putMoney(valg);
 		
 		System.out.println();
 		System.out.println("Der blev fundet "+antalFejl+" fejl i automaten");

@@ -15,7 +15,7 @@ public class CheckNegativeInputs
 		}
 
 		System.out.println("*** Tjek af salg af en billet");
-		automat.indsætPenge(-10);
+		automat.putMoney(-10);
 		automat.udskrivBillet();
 		
 		retur = automat.returpenge();

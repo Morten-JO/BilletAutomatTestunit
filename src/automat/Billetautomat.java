@@ -6,7 +6,7 @@ public class Billetautomat {
 	private int billetpris;    // Prisen for én billet.
 	private int balance; // Hvor mange penge kunden p.t. har puttet i automaten
 	private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
-	private boolean montørtilstand;
+	private boolean controllerState;
 
 	/**
 	 * Opret en billetautomat der sælger billetter til 10 kr.
@@ -27,9 +27,9 @@ public class Billetautomat {
 	/**
 	 * Modtag nogle penge (i kroner) fra en kunde.
 	 */
-	public void indsætPenge(int beløb) {
-		if(beløb > 0){
-			balance += beløb;
+	public void putMoney(int amount) {
+		if(amount > 0){
+			balance += amount;
 		}
 	}
 
@@ -67,27 +67,27 @@ public class Billetautomat {
 
 
 	public int returpenge() {
-		int returbeløb = balance;
+		int returnAmount = balance;
 		balance = 0;
-		System.out.println("Du får "+returbeløb+" kr retur");
-		return returbeløb;
+		System.out.println("Du får "+returnAmount+" kr retur");
+		return returnAmount;
 	}
 
 	
-	void montørLogin(String adgangskode) {
+	public void controllerLogin(String adgangskode) {
 		if ("1234".equals(adgangskode)) {
-			montørtilstand = true;
+			controllerState = true;
 			System.out.println("Montørtilstand aktiveret");
 			System.out.println("Du kan nu angive billetpris");
 		} else {
-			montørtilstand = false;
+			controllerState = false;
 			System.out.println("Montørtilstand deaktiveret");
 		}
 	}
 
 
 	public int getTotal() {
-		if (montørtilstand) {
+		if (controllerState) {
 			return billetpris * antalBilletterSolgt;
 		} else {
 			System.out.println("Afvist - log ind først");
@@ -96,7 +96,7 @@ public class Billetautomat {
 	}
 
 	public int getAntalBilletterSolgt() {
-		if (montørtilstand) {
+		if (controllerState) {
 			return antalBilletterSolgt;
 		} else {
 			System.out.println("Afvist - log ind først");
@@ -105,13 +105,13 @@ public class Billetautomat {
 	}
 
 	public void setBilletpris(int billetpris) {
-		if(billetpris >= 0 && montørtilstand){
+		if(billetpris >= 0 && controllerState){
 			this.billetpris = billetpris;
 		}
 	}
 
 	public void nulstil() {
-		if (montørtilstand) {
+		if (controllerState) {
 			antalBilletterSolgt = 0;
 		} else {
 			System.out.println("Afvist - log ind først");
@@ -119,14 +119,14 @@ public class Billetautomat {
 	}
 
 	public void setAntalBilletterSolgt(int antalBilletterSolgt) {
-		if (montørtilstand) {
+		if (controllerState) {
 			this.antalBilletterSolgt = antalBilletterSolgt;
 		} else {
 			System.out.println("Afvist - log ind først");
 		}
 	}
 
-	public boolean erMontør() {
-		return montørtilstand;
+	public boolean isController() {
+		return controllerState;
 	}
 }

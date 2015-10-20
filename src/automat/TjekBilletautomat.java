@@ -15,7 +15,7 @@ public class TjekBilletautomat
 		}
 
 		System.out.println("*** Tjek af salg af en billet");
-		automat.indsætPenge(10);
+		automat.putMoney(10);
 		automat.udskrivBillet();
 		retur = automat.returpenge();
 		if (retur != 0) {
@@ -24,7 +24,7 @@ public class TjekBilletautomat
 		}
 
 		System.out.println("*** Tjek af, at penge kan komme retur");
-		automat.indsætPenge(100);
+		automat.putMoney(100);
 		automat.udskrivBillet();
 		retur = automat.returpenge();
 		if (retur != 90) {
@@ -40,7 +40,7 @@ public class TjekBilletautomat
 		}
 		
 		System.out.println("*** Tjek af, at kun den korrekte montørkode fungerer");
-		automat.montørLogin("6789");	
+		automat.controllerLogin("6789");	
 		retur = automat.getAntalBilletterSolgt();
 		if (retur != 0) {
 			System.out.println("FEJL, AntalBilletterSolgt() skulle give 0, men den gav: "+retur);
@@ -48,7 +48,7 @@ public class TjekBilletautomat
 		}
 
 		System.out.println("*** Tjek af, at montøren kan se hvor mange billetter der er solgt");
-		automat.montørLogin("1234");
+		automat.controllerLogin("1234");
 		retur = automat.getAntalBilletterSolgt();
 		if (retur != 2) {
 			System.out.println("FEJL, AntalBilletterSolgt() skulle give 2, men den gav: "+retur);
@@ -57,7 +57,7 @@ public class TjekBilletautomat
 
 		System.out.println("*** Tjek af andre billetpriser");
 		automat.setBilletpris(20);
-		automat.indsætPenge(100);
+		automat.putMoney(100);
 		automat.udskrivBillet();
 		retur = automat.returpenge();
 		if (retur != 80) {

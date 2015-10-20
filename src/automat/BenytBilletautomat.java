@@ -22,7 +22,7 @@ public class BenytBilletautomat
 			System.out.println("Tast 3 for at få returpengene");
 			System.out.println();
 			System.out.println("Tast 10 for at logge ind som montør");
-			if (automat.erMontør()) {
+			if (automat.isController()) {
 				System.out.println("Tast 11 for at se status (montør)");
 				System.out.println("Tast 12 for at nulstille (montør)");
 				System.out.println("Tast 13 for at sætte billetpris (montør)");
@@ -38,25 +38,25 @@ public class BenytBilletautomat
 		
 			if (valg==1) {
 				System.out.print("Skriv beløb: ");
-				int beløb;
+				int amount;
 				while(!tastatur.hasNextInt()){
 					tastatur.nextLine();
 					System.out.println("Skriv et tal!");
 				}
-				beløb = tastatur.nextInt();
-				automat.indsætPenge(beløb);
+				amount = tastatur.nextInt();
+				automat.putMoney(amount);
 			}
 			else if (valg==2) {
 				automat.udskrivBillet();
 			}
 			else if (valg==3) {
-				int beløb = automat.returpenge();
-				System.out.println("Du fik "+beløb+" retur retur");
+				int amount = automat.returpenge();
+				System.out.println("Du fik "+amount+" retur retur");
 			}
 			else if (valg==10) {
 				System.out.print("Skriv kode: ");
-				String kode = tastatur.next();
-				automat.montørLogin(kode);
+				String code = tastatur.next();
+				automat.controllerLogin(code);
 			}
 			else if (valg==11) {
 				System.out.println("Antal billetter solgt: " + automat.getAntalBilletterSolgt());
@@ -67,16 +67,16 @@ public class BenytBilletautomat
 			}
 			else if (valg==13) {
 				System.out.print("Skriv beløb: ");
-				int beløb;
+				int amount;
 				while(!tastatur.hasNextInt()){
 					tastatur.nextLine();
 					System.out.println("Skriv et tal!");
 				}
-				beløb = tastatur.nextInt();
-				automat.setBilletpris(beløb);
+				amount = tastatur.nextInt();
+				automat.setBilletpris(amount);
 			}
 			else if (valg==14) {
-				automat.montørLogin("");;
+				automat.controllerLogin("");;
 			}
 			else {
 				System.out.println("Ugyldigt valg, prøv igen");

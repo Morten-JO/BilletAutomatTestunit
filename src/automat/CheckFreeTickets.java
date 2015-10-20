@@ -17,7 +17,7 @@ public class CheckFreeTickets
 		System.out.println("*** Tjek af salg af en billet");
 		//automat.indsætPenge(10);
 		automat.udskrivBillet(); //FREE TICKETS ^.^
-		automat.montørLogin("1234");
+		automat.controllerLogin("1234");
 		if(automat.getAntalBilletterSolgt() != 0){
 			System.out.println("FEJL, automaten har solgt en billet til 0 kr...");
 			antalFejl++;
