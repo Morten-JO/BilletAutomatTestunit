@@ -18,6 +18,8 @@ import automat.Billetautomat;
 
 public class BilletautomatTest {
 
+	//GIT IS: https://github.com/Mortenbaws/BilletAutomatTestunit
+	
 	@Test
 	public void testBilletautomat() {
 	}
