@@ -37,22 +37,31 @@ public class BilletautomatTest {
 
 	@Test
 	public void testGetBalance() {
-		fail("Not yet implemented");
+		Billetautomat b = new Billetautomat();
+		assertEquals(0, b.getBalance());
 	}
 
 	@Test
 	public void testUdskrivBillet() {
-		fail("Not yet implemented");
+		Billetautomat b = new Billetautomat();
+		b.putMoney(b.getBilletpris());
+		b.udskrivBillet();
+		b.controllerLogin("1234");
+		assertEquals(1, b.getAntalBilletterSolgt());
 	}
 
 	@Test
 	public void testReturpenge() {
-		fail("Not yet implemented");
+		Billetautomat b = new Billetautomat();
+		b.putMoney(10);
+		assertEquals(10, b.returpenge());
 	}
 
 	@Test
 	public void testControllerLogin() {
-		fail("Not yet implemented");
+		Billetautomat b = new Billetautomat();
+		b.controllerLogin("1234");
+		assertEquals(true, b.isController());
 	}
 
 	@Test
