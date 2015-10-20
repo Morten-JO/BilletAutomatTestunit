@@ -8,6 +8,7 @@ public class CheckNegativeInputs
 
 		int antalFejl = 0;
 		int retur;
+		//ok
 		
 		retur = automat.getBilletpris();
 		if (retur != 10) {
